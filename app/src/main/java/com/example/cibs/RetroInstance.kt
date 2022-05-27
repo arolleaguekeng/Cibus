@@ -9,7 +9,7 @@ class RetroInstance {
 
     companion object{
         var baseAdresse = "http://192.168.43.2:8000/"
-        fun getRetroInstance(): Retrofit {
+        fun getRetroInstance(): Retrofit{
 
             val loggin = HttpLoggingInterceptor()
             loggin.level = (HttpLoggingInterceptor.Level.BODY)
