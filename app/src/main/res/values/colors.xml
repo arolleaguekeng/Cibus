@@ -9,6 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Orange">#f8a724</color>
     <color name="OrangeCompac">#f74f04</color>
+    <color name="darkGray">#202122</color>
+    <color name="lightGray">#989CA0</color>
     <color name="sableBlanc">#A7A7A7</color>
     <color name="Blanccasse">#ccc</color>
+    <color name="Orange1">#FFA500</color>
+    <color name="Orangered">#FF4500</color>
+    <color name="tomatio">#FF6347</color>
+    <color name="DarkOrange">#FF8C00</color>
 </resources>

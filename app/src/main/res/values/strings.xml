@@ -4,4 +4,9 @@
     <string name="forget">forgot password?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="premier">Premier</string>
+    <string name="deuxieme">Image de produit</string>
+    <string name="troisieme">Pizza Margentha</string>
+    <string name="quatrieme">100 $</string>
+    <string name="cinquieme">Button d_ajout</string>
 </resources>

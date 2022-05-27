@@ -65,6 +65,9 @@ class LoginActivity : AppCompatActivity() {
                     "successffull result found...",
                     Toast.LENGTH_SHORT
                 ).show()
+                Intent(applicationContext, Home::class.java).also {
+                    startActivity(it)
+                }
                 finish()
             }
         }
