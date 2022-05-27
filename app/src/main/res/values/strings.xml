@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cib\'s</string>
+    <string name="hint_mail">Email ID</string>
+    <string name="forget">forgot password?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
