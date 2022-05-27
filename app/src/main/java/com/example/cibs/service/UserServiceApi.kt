@@ -13,9 +13,9 @@ interface UserServiceApi {
     //@Headers("Accept:application/json", "Content-type:application/json")
     fun getUser(): Call<MutableList<User>>
 
-    @GET("/users/login")
+    @GET("/login")
     //@Headers("Accept:application/json", "Content-type:application/json")
-    fun getUserLogin(@Query("email") email: String, @Query("password") password: String): Call<MutableList<User>>
+    fun getUserLogin(@Query("email") email: String, @Query("password") password: String): Call<User>
 
 
 }

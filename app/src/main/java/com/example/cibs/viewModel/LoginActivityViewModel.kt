@@ -12,9 +12,9 @@ import retrofit2.Response
 
 class LoginActivityViewModel: ViewModel() {
 
-    var loginNewUserLiveData: MutableLiveData<MutableList<User>?> = MutableLiveData()
+    var loginNewUserLiveData: MutableLiveData<User?> = MutableLiveData()
 
-    fun getLoginUserNewObservable(): MutableLiveData<MutableList<User>?>
+    fun getLoginUserNewObservable(): MutableLiveData<User?>
     {
         return loginNewUserLiveData
     }
@@ -24,8 +24,8 @@ class LoginActivityViewModel: ViewModel() {
         val retroInstance = RetroInstance.getRetroInstance().create(UserServiceApi::class.java)
         val call = retroInstance.getUserLogin(email, password)
 
-        call.enqueue(object : Callback<MutableList<User>?> {
-            override fun onResponse(call: Call<MutableList<User>?>, response: Response<MutableList<User>?>)
+        call.enqueue(object : Callback<User?> {
+            override fun onResponse(call: Call<User?>, response: Response<User?>)
             {
                 if(response.isSuccessful)
                 {
@@ -36,7 +36,7 @@ class LoginActivityViewModel: ViewModel() {
                     loginNewUserLiveData.postValue(null)
                 }
             }
-            override fun onFailure(call: Call<MutableList<User>?>, t: Throwable)
+            override fun onFailure(call: Call<User?>, t: Throwable)
             {
                 loginNewUserLiveData.postValue(null)
             }

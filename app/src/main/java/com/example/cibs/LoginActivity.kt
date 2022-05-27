@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUserObservable(){
-        viewModel.getLoginUserNewObservable().observe(this, Observer<MutableList<User>?> {
+        viewModel.getLoginUserNewObservable().observe(this, Observer<User?> {
             if (it == null) {
                 Toast.makeText(applicationContext, "no result found...", Toast.LENGTH_SHORT).show()
             } else {
