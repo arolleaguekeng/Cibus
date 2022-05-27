@@ -9,12 +9,12 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.cibs.Home
+import com.example.cibs.HomeActivity
 import com.example.cibs.Models.Restaurant
 import com.example.cibs.R
 
 class Accueiladapter(
-    private val context: Home,
+    private val context: HomeActivity,
     private val restaurantList:List<Restaurant>,
     private val layoutId:Int
     ) :RecyclerView.Adapter<Accueiladapter.viewHolder>(){

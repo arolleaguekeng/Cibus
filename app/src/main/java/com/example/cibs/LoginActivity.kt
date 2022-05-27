@@ -3,6 +3,7 @@ package com.example.cibs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +16,15 @@ import com.example.cibs.viewModel.LoginActivityViewModel
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity : AppCompatActivity() {
+
+    companion object{
+       lateinit var CurrentUser: User
+       lateinit var nom: String
+       lateinit var email: String
+       lateinit var phone: String
+       lateinit var password: String
+       lateinit var passwordConfirm: String
+    }
 
     lateinit var viewModel: LoginActivityViewModel
 
@@ -62,10 +72,11 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     applicationContext,
-                    "successffull result found...",
+                    "login success...",
                     Toast.LENGTH_SHORT
                 ).show()
-                Intent(applicationContext, Home::class.java).also {
+                CurrentUser = it
+                Intent(applicationContext, HomeActivity::class.java).also {
                     startActivity(it)
                 }
                 finish()

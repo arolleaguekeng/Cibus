@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
+import com.google.android.material.textfield.TextInputEditText
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +36,22 @@ class RegisterPasswordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_password, container, false)
+        val view = inflater.inflate(R.layout.fragment_register_password, container, false)
+
+
+        val password = view.findViewById<TextInputEditText>(R.id.password)
+        val passwordConfirm = view.findViewById<TextInputEditText>(R.id.passwordConfirm)
+
+        password.doOnTextChanged { text, start, before, count ->
+            LoginActivity.password = password.text.toString()
+        }
+
+        passwordConfirm.doOnTextChanged { text, start, before, count ->
+            LoginActivity.passwordConfirm = passwordConfirm.text.toString()
+        }
+
+
+        return view
     }
 
     companion object {

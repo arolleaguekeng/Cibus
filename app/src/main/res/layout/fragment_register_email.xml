@@ -71,7 +71,6 @@
         app:startIconDrawable="@drawable/ic_baseline_phone_24"
         android:hint="phone number"
         android:layout_below="@id/nameblock"
-
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone"

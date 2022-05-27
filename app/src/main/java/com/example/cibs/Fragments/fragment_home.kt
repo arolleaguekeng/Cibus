@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cibs.Adapters.Accueiladapter
-import com.example.cibs.Home
+import com.example.cibs.HomeActivity
 import com.example.cibs.Models.Categorie
 import com.example.cibs.Models.Plat
 import com.example.cibs.Models.Restaurant
 import com.example.cibs.R
 
-class fragment_home(private val context:Home): Fragment() {
+class fragment_home(private val context:HomeActivity): Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
