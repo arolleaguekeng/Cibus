@@ -1,9 +1,12 @@
 package com.example.cibs.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +23,8 @@ import com.example.cibs.model.Restaurant
 
 class fragment_home(private val context: HomeActivity
 ): Fragment(), CategorieClickListener, Restaurant1ClickListener, PlatClickListener {
-
+    val bottomSheetFragment = BottomFragmentProduct()
+    val bottomFragmentParameter = BottomFragmentParameter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,6 +61,10 @@ class fragment_home(private val context: HomeActivity
         )
 
         //ajout
+        val parameter: ImageView = view.findViewById(R.id.parameter)
+        parameter.setOnClickListener {
+            bottomFragmentParameter.show(parentFragmentManager, "bottom sheet dialogue")
+        }
 
 
         val horizontalrecycleView=view.findViewById<RecyclerView>(R.id.horizontal_recycleView1)
@@ -76,25 +84,32 @@ class fragment_home(private val context: HomeActivity
 
     override fun onButtonClicked(categorie: Categorie, view: View) {
         Toast.makeText(context, categorie.name, Toast.LENGTH_SHORT).show()
+
+
     }
 
     override fun onItemClicked(categorie: Categorie, view: View) {
         Toast.makeText(context, categorie.name, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onButtonClicked(plat: Plat) {
         Toast.makeText(context, plat.name, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onItemClicked(plat: Plat, view: View) {
-        Toast.makeText(context, plat.name, Toast.LENGTH_SHORT).show()
+        HomeActivity.CurrentPlat = plat
+        bottomSheetFragment.show(parentFragmentManager, "Bottom sheet dialog")
     }
 
     override fun onButtonClicked(restaurant: Restaurant) {
         Toast.makeText(context, restaurant.name, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onItemClicked(restaurant: Restaurant, view: View) {
         Toast.makeText(context, restaurant.name, Toast.LENGTH_SHORT).show()
+
     }
 }

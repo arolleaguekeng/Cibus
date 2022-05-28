@@ -5,7 +5,9 @@
         android:icon="@drawable/id_home"
         android:title="Home"/>
 
-    <item android:title="Panier"/>
+    <item android:title="Panier"
+        android:id="@+id/id_panier"
+        />
 
     <item android:id="@+id/order_page"
         android:title="Order"
