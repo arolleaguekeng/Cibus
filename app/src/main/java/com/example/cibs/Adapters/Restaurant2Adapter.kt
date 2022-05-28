@@ -19,7 +19,7 @@ class Restaurant2Adapter(val datas: MutableList<Restaurant>, private val itemCli
         val Image_restaurant:ImageView=view.findViewById(R.id.Image_restaurant)
         val RestaurantName:TextView=view.findViewById(R.id.Nom_restaurant)
         val Description_restaurant:TextView?=view.findViewById(R.id.Description_restaurant)
-        // val Nbre_like_restaut:TextView?=view.findViewById(R.id.nbre_like_restaut)
+
         val nbr=view.findViewById<RatingBar>(R.id.StarNote)
 
 
