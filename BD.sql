@@ -69,3 +69,7 @@ CREATE TABLE IF NOT EXISTS User
 	 CONSTRAINT user_loc_fk FOREIGN KEY (localisation_id)
         REFERENCES Localisation (localisation_id)	
 )
+
+
+
+-------test commit-----------------!>
