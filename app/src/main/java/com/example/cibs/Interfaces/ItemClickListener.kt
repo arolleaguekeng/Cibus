@@ -1,8 +1,7 @@
-package com.example.cibs
+package com.example.cibs.Interfaces
 
 import android.view.View
-import java.text.FieldPosition
-
+import android.widget.Button
 
 interface ItemClickListener {
 

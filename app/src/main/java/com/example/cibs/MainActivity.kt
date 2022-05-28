@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cibs.Interfaces.ItemClickListener
 import com.example.cibs.viewModel.ViewPageAdapter
 import me.relex.circleindicator.CircleIndicator3
 

@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cibs.ItemClickListener
+import com.example.cibs.Interfaces.ItemClickListener
 import com.example.cibs.R
 
 class ViewPageAdapter(private var title: List<String>, private var textButton: List<String>, private var image: List<Int>, val itemClickListener: ItemClickListener):RecyclerView.Adapter<ViewPageAdapter.PagerViewHolder>()

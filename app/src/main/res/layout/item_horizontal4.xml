@@ -66,6 +66,7 @@
                     android:layout_marginTop="155dp"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:rating="3.5"
+                    android:progressTint="@color/Orange"
                     />
 
         </androidx.cardview.widget.CardView>
