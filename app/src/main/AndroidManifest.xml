@@ -13,22 +13,7 @@
         android:theme="@style/Theme.Cibs"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".HomeActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ClientDidactActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RestoDidactActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +22,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.ClientDidactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.RestoDidactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SplashActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".Activities.MainActivity"
             android:exported="false" />
     </application>
 

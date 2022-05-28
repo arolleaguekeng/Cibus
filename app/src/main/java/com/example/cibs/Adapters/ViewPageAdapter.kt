@@ -1,4 +1,4 @@
-package com.example.cibs.viewModel
+package com.example.cibs.Adapters
 
 import android.view.LayoutInflater
 import android.view.View

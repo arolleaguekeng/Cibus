@@ -1,11 +1,12 @@
-package com.example.cibs
+package com.example.cibs.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cibs.Interfaces.ItemClickListener
-import com.example.cibs.viewModel.ViewPageAdapter
+import com.example.cibs.R
+import com.example.cibs.Adapters.ViewPageAdapter
 import me.relex.circleindicator.CircleIndicator3
 
 class MainActivity : AppCompatActivity(), ItemClickListener {

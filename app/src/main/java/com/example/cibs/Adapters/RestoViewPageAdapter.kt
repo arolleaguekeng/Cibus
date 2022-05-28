@@ -1,9 +1,8 @@
-package com.example.cibs.viewModel
+package com.example.cibs.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -32,7 +31,7 @@ class RestoViewPageprivateAdapter (var title: List<String>, private var image: L
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RestoViewPageprivateAdapter.PagerViewHolder {
+    ): PagerViewHolder {
         return  PagerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_page_resto, parent, false))
     }
 

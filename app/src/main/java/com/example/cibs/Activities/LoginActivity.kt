@@ -1,17 +1,15 @@
-package com.example.cibs
+package com.example.cibs.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.cibs.R
 import com.example.cibs.model.User
-import com.example.cibs.model.UserResponse
 import com.example.cibs.viewModel.LoginActivityViewModel
 import com.google.android.material.textfield.TextInputEditText
 

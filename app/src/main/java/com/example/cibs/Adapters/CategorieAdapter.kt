@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.cibs.HomeActivity
 import com.example.cibs.Interfaces.CategorieClickListener
 import com.example.cibs.R
 import com.example.cibs.model.Categorie

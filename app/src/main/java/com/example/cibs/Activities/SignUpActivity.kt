@@ -1,22 +1,20 @@
-package com.example.cibs
+package com.example.cibs.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.View.inflate
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.cibs.R
+import com.example.cibs.Fragments.RegisterEmailFragment
+import com.example.cibs.Fragments.RegisterPasswordFragment
 import com.example.cibs.model.User
 import com.example.cibs.model.UserResponse
-import com.example.cibs.viewModel.LoginActivityViewModel
 import com.example.cibs.viewModel.SignUpActivityViewModel
 import com.google.android.material.textfield.TextInputEditText
-import java.util.zip.Inflater
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -68,7 +66,11 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-        val user = User(LoginActivity.email, LoginActivity.password, LoginActivity.nom, LoginActivity.phone, null, null)
+        val user = User(
+            LoginActivity.email,
+            LoginActivity.password,
+            LoginActivity.nom,
+            LoginActivity.phone, null, null)
 
         viewModel.SignUpUser(user)
     }

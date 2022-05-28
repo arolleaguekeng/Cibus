@@ -25,23 +25,26 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-thin"
                 android:text="Cibus"
-                android:textFontWeight="@integer/material_motion_duration_long_1"
+                style="@style/TitleTextStyle"
                 android:textColor="@color/Orange"
-                android:textSize="30sp" />
+                android:textFontWeight="@integer/material_motion_duration_long_1"
+                android:textSize="25sp" />
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="50dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="50dp"
                 android:src="@drawable/ic_baseline_search_24"
                 app:tint="@color/sableBlanc" />
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_baseline_settings_24"
                 app:tint="@color/sableBlanc" />
          </RelativeLayout>
