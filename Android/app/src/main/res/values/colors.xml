@@ -17,4 +17,6 @@
     <color name="Orangered">#FF4500</color>
     <color name="tomatio">#FF6347</color>
     <color name="DarkOrange">#FF8C00</color>
+    <color name="orange">#EA8B00</color>
+    <color name="blackTransparent">#61000000</color>
 </resources>

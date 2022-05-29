@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.example.cibs.Activities.LoginActivity
 import com.example.cibs.R
 import com.google.android.material.textfield.TextInputEditText

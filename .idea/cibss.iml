@@ -7,6 +7,9 @@
       <excludeFolder url="file://$MODULE_DIR$/MultiPlateforme/cibus_multi_plateforme/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/MultiPlateforme/cibus_multi_plateforme/build" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/MultiPlateforme/build" />
+      <excludeFolder url="file://$MODULE_DIR$/MultiPlateforme/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/MultiPlateforme/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

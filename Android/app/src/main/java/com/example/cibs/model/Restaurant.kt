@@ -1,6 +1,6 @@
 package com.example.cibs.model
 
-data class Restaurant(
+open class Restaurant(
     val name: String?,
     val description: String?,
     val image: String?,
