@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cibs.Interfaces.Restaurant1ClickListener
 import com.example.cibs.R
-import com.example.cibs.model.Categorie
 import com.example.cibs.model.Restaurant
 
 class Restaurant1Adapter(val datas: MutableList<Restaurant>, private val itemClickListener: Restaurant1ClickListener): RecyclerView.Adapter<Restaurant1Adapter.viewHolder>() {

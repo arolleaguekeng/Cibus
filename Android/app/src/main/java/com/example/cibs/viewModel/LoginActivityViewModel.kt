@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.cibs.RetroInstance
 import com.example.cibs.model.User
-import com.example.cibs.model.UserResponse
 import com.example.cibs.service.UserServiceApi
 import retrofit2.Call
 import retrofit2.Callback

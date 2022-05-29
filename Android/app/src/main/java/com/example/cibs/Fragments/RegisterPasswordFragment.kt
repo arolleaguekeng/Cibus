@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
 import com.example.cibs.Activities.LoginActivity
 import com.example.cibs.R
 import com.google.android.material.textfield.TextInputEditText
@@ -17,10 +16,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [RegisterEmailFragment.newInstance] factory method to
+ * Use the [RegisterPasswordFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RegisterEmailFragment : Fragment() {
+class RegisterPasswordFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,21 +36,19 @@ class RegisterEmailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_register_email, container, false)
-        val phone = view.findViewById<TextInputEditText>(R.id.phone)
-        val email = view.findViewById<TextInputEditText>(R.id.email)
-        val nom = view.findViewById<TextInputEditText>(R.id.name)
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_register_password, container, false)
 
 
-        phone.doOnTextChanged { text, start, before, count ->
-            LoginActivity.phone = phone.text.toString()
+        val password = view.findViewById<TextInputEditText>(R.id.password)
+        val passwordConfirm = view.findViewById<TextInputEditText>(R.id.passwordConfirm)
+
+        password.doOnTextChanged { text, start, before, count ->
+            LoginActivity.password = password.text.toString()
         }
-        email.doOnTextChanged { text, start, before, count ->
-            LoginActivity.email = email.text.toString()
-        }
-        nom.doOnTextChanged { text, start, before, count ->
-            LoginActivity.nom = nom.text.toString()
+
+        passwordConfirm.doOnTextChanged { text, start, before, count ->
+            LoginActivity.passwordConfirm = passwordConfirm.text.toString()
         }
 
 
@@ -65,12 +62,12 @@ class RegisterEmailFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterEmailFragment.
+         * @return A new instance of fragment RegisterPasswordFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            RegisterEmailFragment().apply {
+            RegisterPasswordFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
