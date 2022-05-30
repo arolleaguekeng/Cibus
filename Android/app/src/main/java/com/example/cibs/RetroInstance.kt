@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetroInstance {
 
     companion object{
-        var baseAdresse = "http://192.168.1.107:8000/"
+        var baseAdresse = "http://192.168.43.2:8000/"
         fun getRetroInstance(): Retrofit{
 
             val loggin = HttpLoggingInterceptor()

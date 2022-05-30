@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.cibs.R
 import com.example.cibs.model.User
+import com.example.cibs.service.utils.LoadingDialog
 import com.example.cibs.viewModel.LoginActivityViewModel
 import com.google.android.material.textfield.TextInputEditText
 
@@ -25,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     lateinit var viewModel: LoginActivityViewModel
-
+    val loading = LoadingDialog(this)
     lateinit var email: TextInputEditText
     lateinit var password: TextInputEditText
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(){
+
+        loading.startloading()
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         viewModel.LoginUser(email.text.toString(), password.text.toString())
@@ -64,15 +67,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUserObservable(){
+
         viewModel.getLoginUserNewObservable().observe(this, Observer<User?> {
             if (it == null) {
                 Toast.makeText(applicationContext, "no result found...", Toast.LENGTH_SHORT).show()
+                loading.isDismiss()
             } else {
                 Toast.makeText(
                     applicationContext,
                     "login success...",
                     Toast.LENGTH_SHORT
                 ).show()
+                loading.isDismiss()
                 CurrentUser = it
                 Intent(applicationContext, HomeActivity::class.java).also {
                     startActivity(it)

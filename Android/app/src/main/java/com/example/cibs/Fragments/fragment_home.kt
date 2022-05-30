@@ -50,13 +50,13 @@ class fragment_home(private val context: HomeActivity
             Categorie("Soupe","https://st.depositphotos.com/1020618/2013/i/950/depositphotos_20136185-stock-photo-delicious-italian-pizza.jpg","Des burger pour tous")
         )
         val PlatList: MutableList<Plat> = mutableListOf(
-            Plat("Pizza Magentha","description","https://st.depositphotos.com/1020618/2013/i/950/depositphotos_20136185-stock-photo-delicious-italian-pizza.jpg",2.0f,7000.0, 12, 1),
-            Plat("Pizza Peperronie","description","https://st2.depositphotos.com/1177973/9248/i/950/depositphotos_92482426-stock-photo-pepperoni-pizza-with-olives-and.jpg",2.0f,7000.0, 12, 1),
-            Plat("Hamburger traditionnel","description","https://st.depositphotos.com/1588534/3151/i/950/depositphotos_31516383-stock-photo-traditional-hamburger-and-french-fries.jpg",2.0f,7000.0, 12, 1),
-            Plat("Soupe de cirtrouille","description","https://st4.depositphotos.com/13349494/21832/i/1600/depositphotos_218326124-stock-photo-top-view-bowl-delicious-pumpkin.jpg",2.0f,7000.0, 12, 1),
-            Plat("Autre","description","https://st4.depositphotos.com/13349494/21832/i/1600/depositphotos_218326124-stock-photo-top-view-bowl-delicious-pumpkin.jpg",2.0f,7000.0, 12, 1),
+            Plat(1,"Pizza Magentha","description","https://st.depositphotos.com/1020618/2013/i/950/depositphotos_20136185-stock-photo-delicious-italian-pizza.jpg",2.0f,7000.0, 12, 1),
+            Plat(2,"Pizza Peperronie","description","https://st2.depositphotos.com/1177973/9248/i/950/depositphotos_92482426-stock-photo-pepperoni-pizza-with-olives-and.jpg",2.0f,7000.0, 12, 1),
+            Plat(3,"Hamburger traditionnel","description","https://st.depositphotos.com/1588534/3151/i/950/depositphotos_31516383-stock-photo-traditional-hamburger-and-french-fries.jpg",2.0f,7000.0, 12, 1),
+            Plat(4,"Soupe de cirtrouille","description","https://st4.depositphotos.com/13349494/21832/i/1600/depositphotos_218326124-stock-photo-top-view-bowl-delicious-pumpkin.jpg",2.0f,7000.0, 12, 1),
+            Plat(5,"Autre","description","https://st4.depositphotos.com/13349494/21832/i/1600/depositphotos_218326124-stock-photo-top-view-bowl-delicious-pumpkin.jpg",2.0f,7000.0, 12, 1),
 
-        )
+            )
 
         //ajout
         val parameter: ImageView = view.findViewById(R.id.parameter)

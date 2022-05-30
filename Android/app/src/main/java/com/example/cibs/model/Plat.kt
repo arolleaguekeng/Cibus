@@ -1,6 +1,7 @@
 package com.example.cibs.model
 
 data class Plat(
+    val idplat: Int,
     val name: String?,
     val description: String?,
     val image: String?,

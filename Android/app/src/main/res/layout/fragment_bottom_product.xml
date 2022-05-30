@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BottomFragmentProduct">
+    tools:context="Fragments.BottomFragmentProduct">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,17 +35,17 @@
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/image"
                 android:text="Pizza Margherita" />
+
             <TextView
                 android:id="@+id/subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:textSize="11dp"
-                android:text="Pizza Margherita"
-                android:layout_toEndOf="@id/image"
                 android:layout_marginLeft="10dp"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@id/image"
+                android:text="Pizza Margherita"
+                android:textSize="11dp" />
 
             <RatingBar
                 android:id="@+id/rating"
@@ -229,16 +229,16 @@
                 android:src="@drawable/ic_store"
                 app:tint="@color/Orange" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
+                android:id="@+id/addpanier"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_toEndOf="@id/imageButton"
-                android:background="@color/Orange"
+                android:backgroundTint="@color/Orange"
                 android:text="Add To Cart"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
-
 
         </RelativeLayout>
     </LinearLayout>

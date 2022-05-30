@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.cibs.Activities.HomeActivity
 import com.example.cibs.R
+import com.example.cibs.model.Panier
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,12 +37,13 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
         return inflater.inflate(R.layout.fragment_bottom_product, container, false)
     }
 
-
+    var currentPrix: Double = 0.0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         var currentQuantity = 1
-        var isLike = true
+
+        var isAdd = false
         var quantity = view.findViewById<TextView>(R.id.Quantity)
         var addQuantity = view.findViewById<ImageView>(R.id.addQuantity)
         var addRemove = view.findViewById<ImageView>(R.id.remove)
@@ -50,28 +53,46 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
         var sub: TextView = view.findViewById<TextView>(R.id.subtitle)
         var price: TextView = view.findViewById<TextView>(R.id.price)
         var rating: RatingBar = view.findViewById<RatingBar>(R.id.rating)
+        var button: Button = view.findViewById<Button>(R.id.addpanier)
 
         title.text = HomeActivity.CurrentPlat.name
         sub.text = HomeActivity.CurrentPlat.name
-        price.text = HomeActivity.CurrentPlat.prix.toString()+"$"
+        price.text = HomeActivity.CurrentPlat.prix.toString()+" XAF"
+        currentPrix = HomeActivity.CurrentPlat.prix
         rating.rating = HomeActivity.CurrentPlat.rating
         Glide.with(view.context).load(Uri.parse(HomeActivity.CurrentPlat.image)).into(
             platImage
         )
-        fav.setOnClickListener {
-            if(isLike){
-
-            }
+        if(isAdd){
+            button.isEnabled = false
+            //button. = R.color.sableBlanc
         }
         addQuantity.setOnClickListener{
             currentQuantity++
             quantity.text = currentQuantity.toString()
+            currentPrix += HomeActivity.CurrentPlat.prix
+
         }
 
         addRemove.setOnClickListener{
             if(currentQuantity > 1)
                 currentQuantity--
             quantity.text = currentQuantity.toString()
+            currentPrix -= HomeActivity.CurrentPlat.prix
+        }
+
+        button.setOnClickListener{
+            var exist = false
+            for(i in HomeActivity.ListPanier){
+                if(i.plat == HomeActivity.CurrentPlat){
+                    i.quantity += currentQuantity
+                    exist = true
+                }
+            }
+            if(exist == false){
+                HomeActivity.ListPanier.add(Panier(HomeActivity.CurrentPlat, currentQuantity, currentPrix))
+            }
+            isAdd = true
         }
 
 

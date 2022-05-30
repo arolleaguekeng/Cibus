@@ -1,7 +1,7 @@
 package com.example.cibs.model
 
 data class Panier(
-    val idPanier: Int,
-    val quantite: Int,
-    val idPlat: Int
+    var plat: Plat,
+    var quantity: Int,
+    var prix: Double
 )

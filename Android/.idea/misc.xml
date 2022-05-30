@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_home.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_bottom_product.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_orders.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_pannier.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_bottom_option.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_horizontal1.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_horizontal2.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_horizontal3.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_horizontal4.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_page.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_page_resto.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_plat_cart.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_repas.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_slide.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/loading_item.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/drawable-anydpi/id_search.xml" value="0.153" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/drawable-v24/ic_add_circle.xml" value="0.1" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/drawable/raduis_button.xml" value="0.1945" />
@@ -29,8 +46,6 @@
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/layout/item_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/layout/item_page_resto.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
-        <entry key="..\:/projet/cibss/Android/app/src/main/res/layout/activity_detail_restaurant.xml" value="0.1" />
-        <entry key="..\:/projet/cibss/Android/app/src/main/res/layout/item_slide.xml" value="0.275" />
       </map>
     </option>
   </component>
