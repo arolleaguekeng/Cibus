@@ -3,6 +3,7 @@ import 'package:cibus_multi_plateforme/components/rounded_button.dart';
 import 'package:cibus_multi_plateforme/components/rounded_input_field.dart';
 import 'package:cibus_multi_plateforme/components/rounded_password_field.dart';
 import 'package:cibus_multi_plateforme/constants.dart';
+import 'package:cibus_multi_plateforme/models/api/user_api.dart';
 import 'package:cibus_multi_plateforme/views/Activities/Screens/Login/LoginScreen.dart';
 import 'package:cibus_multi_plateforme/views/Activities/Screens/Signup/background.dart';
 import 'package:cibus_multi_plateforme/views/Activities/Screens/Signup/or_divider.dart';
@@ -17,6 +18,8 @@ class Body extends StatelessWidget{
   });
   @override
   Widget build(BuildContext context) {
+    TextEditingController txtUserName = TextEditingController();
+    TextEditingController txtPassword = TextEditingController();
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
@@ -26,22 +29,29 @@ class Body extends StatelessWidget{
               "SIGN UP",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height *0.35),
+            SizedBox(height: size.height *0.03),
             SvgPicture.asset(
               "assets/icons/signup.svg",
               height: size.height * 0.35,
             ),
-            SizedBox(height: size.height *0.35),
+            SizedBox(height: size.height *0.03),
             RoundedInputField(
+              controller: txtUserName,
               hintText: "Your Email",
               onChanged: (value) {},
             ),
-            SizedBox(height: size.height *0.35),
+            SizedBox(height: size.height *0.03),
             RoundedPasswordField(
+              controller: txtPassword,
               onChanged: (value) {},
             ),
-            SizedBox(height: size.height *0.35),
-            RoundedButton(text: "SINGUP", press: () {}),
+            SizedBox(height: size.height *0.03),
+            RoundedButton(
+                text: "SINGUP",
+                press: () {
+                  userApi.createUser(txtUserName.text, txtPassword.text);
+                }
+                ),
             AlreadyHaveAccountCheck(
               login: false,
               press: () {

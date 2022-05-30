@@ -16,7 +16,7 @@
             android:name=".Activities.HomeActivity"
             android:exported="false"/>
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name=".Activities.DetailRestaurantActivity"
             android:exported="false"/>
         <activity
             android:name=".Activities.SignUpActivity"
@@ -31,7 +31,7 @@
             android:name=".Activities.RestoDidactActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.DetailRestaurantActivity"
+            android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

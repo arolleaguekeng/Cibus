@@ -108,6 +108,5 @@ class fragment_home(private val context: HomeActivity
 
     override fun onItemClicked(restaurant: Restaurant, view: View) {
         Toast.makeText(context, restaurant.name, Toast.LENGTH_SHORT).show()
-
     }
 }
