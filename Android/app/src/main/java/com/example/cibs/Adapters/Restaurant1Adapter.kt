@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cibs.Interfaces.Restaurant1ClickListener
 import com.example.cibs.R
+import com.example.cibs.RetroInstance
 import com.example.cibs.model.Restaurant
 
 class Restaurant1Adapter(val datas: MutableList<Restaurant>, private val itemClickListener: Restaurant1ClickListener): RecyclerView.Adapter<Restaurant1Adapter.viewHolder>() {
@@ -25,11 +26,11 @@ class Restaurant1Adapter(val datas: MutableList<Restaurant>, private val itemCli
 
 
         fun bindData(restaurant: Restaurant) {
-
-            Glide.with(view.context).load(Uri.parse(restaurant.image)).into(
+            var http = RetroInstance.baseAdresse+"static/"+restaurant.image
+            Glide.with(view.context).load(Uri.parse(http)).into(
                 Image_restaurant
             )
-            RestaurantName.text = restaurant.name
+            RestaurantName.text = restaurant.nom
             nbr.rating = restaurant.rating
 
         }

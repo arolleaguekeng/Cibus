@@ -9,9 +9,11 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.cibs.Activities.HomeActivity
 import com.example.cibs.Interfaces.CartClickListener
 import com.example.cibs.Interfaces.CategorieClickListener
 import com.example.cibs.R
+import com.example.cibs.RetroInstance
 import com.example.cibs.model.Categorie
 import com.example.cibs.model.Panier
 import com.example.cibs.model.Plat
@@ -31,14 +33,14 @@ class CartAdapter(val datas: MutableList<Panier>, private val itemClickListener:
         val remove: ImageView =view.findViewById(R.id.remove)
 
         fun bindData(panier: Panier) {
-
-            Glide.with(view.context).load(Uri.parse(panier.plat.image)).into(
+            var http = RetroInstance.baseAdresse+"static/"+panier.plat.image
+            Glide.with(view.context).load(Uri.parse(http)).into(
                 image_plat
             )
-            title.text = panier.plat.name
-            subtitle.text = panier.plat.name
+            title.text = panier.plat.nom
+            subtitle.text = panier.plat.nom
             rating.rating = panier.plat.rating
-            prix.text =  panier.plat.prix.toString()
+            prix.text =  panier.plat.price.toString()
             quantity.text = panier.quantity.toString()
         }
 

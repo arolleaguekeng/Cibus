@@ -8,8 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.cibs.Activities.HomeActivity
 import com.example.cibs.Interfaces.PlatClickListener
 import com.example.cibs.R
+import com.example.cibs.RetroInstance
 import com.example.cibs.model.Plat
 
 class PlatAdapter(val datas: MutableList<Plat>, private val itemClickListener: PlatClickListener): RecyclerView.Adapter<PlatAdapter.viewHolder>() {
@@ -21,14 +23,21 @@ class PlatAdapter(val datas: MutableList<Plat>, private val itemClickListener: P
         val add: ImageView = view.findViewById(R.id.Ajout)
         val nomRestaurant : TextView =view.findViewById<TextView>(R.id.Nom_restaurant)
 
-        fun bindData(plat: Plat) {
 
-            Glide.with(view.context).load(Uri.parse(plat.image)).into(
+        fun bindData(plat: Plat) {
+            var http = RetroInstance.baseAdresse+"static/"+plat.image
+            var restaurant: String? = "aucun resto"
+            Glide.with(view.context).load(Uri.parse(http)).into(
                 Image_plat
             )
-            nom_plat.text = plat.name
-            price.text = plat.prix.toString()
-            nomRestaurant.text = plat.idRestaurant.toString()
+            for(i in HomeActivity.listRest){
+                if(plat.restaurant_id == i.restaurant_id){
+                    restaurant = i.nom
+                }
+            }
+            nom_plat.text = plat.nom
+            price.text = plat.price.toString()
+            nomRestaurant.text = restaurant
 
         }
 
@@ -53,6 +62,5 @@ class PlatAdapter(val datas: MutableList<Plat>, private val itemClickListener: P
         }
 
     }
-
     override fun getItemCount(): Int = datas.size
 }

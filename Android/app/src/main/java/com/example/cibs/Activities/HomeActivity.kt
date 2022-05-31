@@ -5,14 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.cibs.Fragments.fragment_home
 import com.example.cibs.Fragments.fragment_orders
 import com.example.cibs.Fragments.fragment_panier
 import com.example.cibs.R
+import com.example.cibs.model.Categorie
 import com.example.cibs.model.Panier
 import com.example.cibs.model.Plat
+import com.example.cibs.model.Restaurant
 import com.example.cibs.service.utils.LoadingDialog
+import com.example.cibs.viewModel.HomeActivityViewModel
+import com.example.cibs.viewModel.LoginActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -22,13 +29,19 @@ class HomeActivity : AppCompatActivity() {
         var CurrentPlat =  Plat(1,"Pizza Peperronie","description","https://st2.depositphotos.com/1177973/9248/i/950/depositphotos_92482426-stock-photo-pepperoni-pizza-with-olives-and.jpg",2.0f,7000.0, 12, 1)
         var CurrentAdd: Double = 0.0
         var ListPanier = mutableListOf<Panier>()
+        var listRest = mutableListOf<Restaurant>()
+        var listCategorie = mutableListOf<Categorie>()
+        var listPlat = mutableListOf<Plat>()
     }
+    lateinit var viewModel: HomeActivityViewModel
+    val loading = LoadingDialog(this)
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        loadfragment(fragment_home(this))
 
+        initViewModel()
+        loadfragment(fragment_home(this))
 
         //importons le bottom navigation
         val button=findViewById<FloatingActionButton>(R.id.shop_page1)
@@ -76,4 +89,47 @@ class HomeActivity : AppCompatActivity() {
         transaction.addToBackStack(null)//Pas de retour
         transaction.commit()
     }
+
+
+     fun initViewModel()
+     {
+        loading.startloading()
+        viewModel = ViewModelProvider(this).get(HomeActivityViewModel::class.java)
+        viewModel.getRestaurantNewObservable()
+            .observe(this, Observer<MutableList<Restaurant>?> {
+                if (it == null) {
+                    Toast.makeText(applicationContext, "Aucun restaurant", Toast.LENGTH_SHORT).show()
+                } else {
+                    listRest = it
+                    Toast.makeText(applicationContext, listRest.toString(), Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
+        viewModel.GetRestaurant()
+        viewModel.getCategoryObservable()
+            .observe(this, Observer<MutableList<Categorie>?> {
+                if (it == null) {
+                    Toast.makeText(applicationContext, "Aucune Categories", Toast.LENGTH_SHORT).show()
+                } else {
+                    HomeActivity.listCategorie = it
+                }
+            })
+        viewModel.GetCategorie()
+
+        viewModel.getRepasNewObservable().observe(this, Observer<MutableList<Plat>?> {
+            if (it == null) {
+                Toast.makeText(applicationContext, "Aucun plat", Toast.LENGTH_SHORT).show()
+            } else {
+
+                HomeActivity.listPlat = it
+                Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
+
+            }
+        })
+        viewModel.GetPlat()
+
+    }
+
+
+
 }

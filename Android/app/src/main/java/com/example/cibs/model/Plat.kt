@@ -1,12 +1,12 @@
 package com.example.cibs.model
 
 data class Plat(
-    val idplat: Int,
-    val name: String?,
+    val plat_id: Int,
+    val nom: String?,
     val description: String?,
     val image: String?,
     val rating: Float,
-    val prix: Double,
-    val idRestaurant: Int,
-    val idCategorie: Int
+    val price: Double,
+    val restaurant_id: Int,
+    val categorie_id: Int
 )

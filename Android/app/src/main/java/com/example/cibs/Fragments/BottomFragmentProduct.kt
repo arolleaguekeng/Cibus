@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.cibs.Activities.HomeActivity
 import com.example.cibs.R
+import com.example.cibs.RetroInstance
 import com.example.cibs.model.Panier
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -54,13 +55,18 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
         var price: TextView = view.findViewById<TextView>(R.id.price)
         var rating: RatingBar = view.findViewById<RatingBar>(R.id.rating)
         var button: Button = view.findViewById<Button>(R.id.addpanier)
+        var subprice: TextView = view.findViewById<TextView>(R.id.subprice)
+        var description: TextView = view.findViewById<TextView>(R.id.Description_repas)
 
-        title.text = HomeActivity.CurrentPlat.name
-        sub.text = HomeActivity.CurrentPlat.name
-        price.text = HomeActivity.CurrentPlat.prix.toString()+" XAF"
-        currentPrix = HomeActivity.CurrentPlat.prix
+        title.text = HomeActivity.CurrentPlat.nom
+        sub.text = HomeActivity.CurrentPlat.nom
+        price.text = HomeActivity.CurrentPlat.price.toString()+" XAF"
+        currentPrix = HomeActivity.CurrentPlat.price
         rating.rating = HomeActivity.CurrentPlat.rating
-        Glide.with(view.context).load(Uri.parse(HomeActivity.CurrentPlat.image)).into(
+        description.text = HomeActivity.CurrentPlat.description
+        subprice.text = HomeActivity.CurrentPlat.price.toString()+" XAF"
+        var http = RetroInstance.baseAdresse+"static/"+HomeActivity.CurrentPlat.image
+        Glide.with(view.context).load(Uri.parse(http)).into(
             platImage
         )
         if(isAdd){
@@ -70,7 +76,7 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
         addQuantity.setOnClickListener{
             currentQuantity++
             quantity.text = currentQuantity.toString()
-            currentPrix += HomeActivity.CurrentPlat.prix
+            currentPrix += HomeActivity.CurrentPlat.price
 
         }
 
@@ -78,7 +84,7 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
             if(currentQuantity > 1)
                 currentQuantity--
             quantity.text = currentQuantity.toString()
-            currentPrix -= HomeActivity.CurrentPlat.prix
+            currentPrix -= HomeActivity.CurrentPlat.price
         }
 
         button.setOnClickListener{

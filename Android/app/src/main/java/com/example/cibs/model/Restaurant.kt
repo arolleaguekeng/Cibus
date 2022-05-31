@@ -1,7 +1,8 @@
 package com.example.cibs.model
 
 open class Restaurant(
-    val name: String?,
+    val restaurant_id: Int,
+    val nom: String?,
     val description: String?,
     val image: String?,
     val rating: Float,

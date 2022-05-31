@@ -15,8 +15,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
             >
 
             <ImageView
@@ -103,6 +101,7 @@
             android:textColor="@color/black"
             />
         <TextView
+            android:id="@+id/Description_repas"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -205,13 +204,13 @@
                 android:text="Total Amout:" />
 
             <TextView
-
+                android:id="@+id/subprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@id/textTotal"
-                android:textColor="@color/Orange"
-                android:text="100.00$" />
+                android:text="100.00$"
+                android:textColor="@color/Orange" />
 
 
         </RelativeLayout>

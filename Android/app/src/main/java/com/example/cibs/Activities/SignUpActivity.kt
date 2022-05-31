@@ -67,6 +67,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
         val user = User(
+            0,
             LoginActivity.email,
             LoginActivity.password,
             LoginActivity.nom,
@@ -96,7 +97,6 @@ class SignUpActivity : AppCompatActivity() {
                 finish()
             }
 
-        }
-        )
+        })
     }
 }

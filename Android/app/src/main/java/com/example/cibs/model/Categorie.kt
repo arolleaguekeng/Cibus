@@ -3,7 +3,7 @@ package com.example.cibs.model
 import java.io.FileDescriptor
 
 data class Categorie(
-    val name: String?,
-    val image: String?,
-    val description: String?
+    val category_id: Int,
+    val nom: String?,
+    val image: String?
     )
