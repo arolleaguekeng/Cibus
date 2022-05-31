@@ -1,10 +1,24 @@
 package com.example.cibs.model
 
+import com.example.cibs.model.detailRestaurant.Repas
+
 open class Restaurant(
-    val restaurant_id: Int,
-    val nom: String?,
-    val description: String?,
-    val image: String?,
-    val rating: Float,
-    val idLocalisation: Int
-)
+    var restaurant_id: Int,
+    var nom: String?,
+    var description: String?,
+    var image: String?,
+    var rating: Float,
+    var idLocalisation: Int
+){
+
+}
+
+class RestaurantModel(restaurant: Restaurant, var repas: MutableList<Repas>?)
+    : Restaurant(restaurant.restaurant_id,
+    restaurant.image,
+    restaurant.nom,
+    restaurant.description,
+    restaurant.rating,
+    restaurant.idLocalisation) {
+}
+

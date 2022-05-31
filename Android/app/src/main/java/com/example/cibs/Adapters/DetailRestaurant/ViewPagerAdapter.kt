@@ -1,23 +1,21 @@
 package com.example.cibs.Adapters.DetailRestaurant
 
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cibs.R
 import com.example.cibs.model.detailRestaurant.Repas
-import com.example.cibs.model.detailRestaurant.Restaurant
+import com.example.cibs.model.Restaurant
+import com.example.cibs.model.RestaurantModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.squareup.picasso.Picasso
 
 
-class ViewPagerAdapter(private var restaux : MutableList<Restaurant>) : RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>() ,
+class ViewPagerAdapter(private var restaux : MutableList<RestaurantModel>) : RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>() ,
     RepasAdapter.onItemClickListener {
     companion object{
         lateinit var CurrentRepas : Repas

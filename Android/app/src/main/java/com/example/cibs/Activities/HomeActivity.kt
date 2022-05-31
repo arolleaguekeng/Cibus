@@ -127,7 +127,7 @@ class HomeActivity : AppCompatActivity() {
             }
         })
         viewModel.GetPlat()
-
+        loading.isDismiss()
     }
 
 

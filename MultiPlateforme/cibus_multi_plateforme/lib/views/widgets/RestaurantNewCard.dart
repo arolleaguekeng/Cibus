@@ -1,8 +1,5 @@
-
-
 import 'package:cibus_multi_plateforme/views/Activities/restaurant_details.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 
 
@@ -44,7 +41,7 @@ enum ListTileControlAffinity {
   platform,
 }
 
-class RepasCard extends StatelessWidget {
+class RestaurantNewCard extends StatelessWidget {
 
 
   /// Creates a list tile.
@@ -52,7 +49,7 @@ class RepasCard extends StatelessWidget {
   /// If [isThreeLine] is true, then [subtitle] must not be null.
   ///
   /// Requires one of its ancestors to be a [Material] widget.
-  const RepasCard({
+  const RestaurantNewCard({
     Key? key,
     this.leading,
     this.title,
@@ -81,14 +78,12 @@ class RepasCard extends StatelessWidget {
     this.enableFeedback,
     this.horizontalTitleGap,
     this.minVerticalPadding,
-    // this.minLeadingWidth,
-    this.repas_id,
-    this.restaurant_id,
+    this.minLeadingWidth,
     this.nom,
-    this.image,
     this.description,
-    this.prix,
-    this.rating
+    this.cookTime,
+    this.rating,
+    this.thumbnailUrl,
   }) : assert(isThreeLine != null),
         assert(enabled != null),
         assert(selected != null),
@@ -321,13 +316,12 @@ class RepasCard extends StatelessWidget {
   final double? minVerticalPadding;
 
 
-  final String? repas_id;
-  final String? restaurant_id;
+  final double? minLeadingWidth;
   final String? nom;
-  final String? image;
   final String? description;
-  final double? prix;
-  final double? rating;
+  final String? rating;
+  final String? cookTime;
+  final String? thumbnailUrl;
 
   static Iterable<Widget> divideTiles({ BuildContext? context, required Iterable<Widget> tiles, Color? color }) {
     assert(tiles != null);
@@ -419,7 +413,6 @@ class RepasCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final ThemeData theme = Theme.of(context);
     final ListTileThemeData tileTheme = ListTileTheme.of(context);
     final IconThemeData iconThemeData = IconThemeData(color: _iconColor(theme, tileTheme));
@@ -442,89 +435,56 @@ class RepasCard extends StatelessWidget {
       hoverColor: hoverColor,
       autofocus: autofocus,
       enableFeedback: enableFeedback ?? tileTheme.enableFeedback ?? true,
-      child:
-          Container(
-            width: size.width /1.5,
-            height: 120,
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.6),
-                  offset: const Offset(
-                    0.0,
-                    5.0,
-                  ),
-                  blurRadius: 10.0,
-                  spreadRadius: -6.0,
-                ),
-              ],
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        width: MediaQuery.of(context).size.width /1.2,
+        height: 200,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.6),
+              offset: const Offset(
+                0.0,
+                10.0,
+              ),
+              blurRadius: 10.0,
+              spreadRadius: -6.0,
             ),
-            child: Row(
-                children: [
-                   Container(
-                     height: double.infinity,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: NetworkImage(image!), fit: BoxFit.cover))
-                  ),
-                  SizedBox(width: size.height *0.02),
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        nom!,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: size.height *0.01),
-
-                      Text(
-                        description!,
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black45,
-                        ),
-                      ),
-                      SizedBox(height: size.height *0.01),
-                      SmoothStarRating(
-                          allowHalfRating: false,
-                          onRated: (v) {
-                          },
-                          starCount: 5,
-                          rating: rating,
-                          size: 20.0,
-                          isReadOnly:true,
-                          color: Colors.orange,
-                          borderColor: Colors.blueGrey,
-                          spacing:0.0
-                      ),
-                      SizedBox(height: size.height *0.01),
-                      Text(
-                        prix.toString() + " XAF",
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black45,
-                        ),
-
-                      ),
-                    ]
-                )
-              ],
+          ],
+          image: DecorationImage(
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.4),
+              BlendMode.multiply,
             ),
-
+            image: NetworkImage(thumbnailUrl!),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(
+                  nom!,
+                  style: const TextStyle(
+                    fontSize: 30,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ],
+        ),
 
-      );
+      ),
 
-
+    );
 
   }
 }
@@ -539,6 +499,7 @@ enum _ListTileSlot {
 }
 
 Iterable<_ListTileSlot> get slots => _ListTileSlot.values;
+
 @override
 bool hitTestSelf(Offset position) => true;
 

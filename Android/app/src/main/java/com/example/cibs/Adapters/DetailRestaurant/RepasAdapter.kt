@@ -7,6 +7,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cibs.R
@@ -37,24 +38,22 @@ class RepasAdapter(
     inner  class RepasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var repasNames : TextView = itemView.findViewById(R.id.txtrepasName)
-        val btn : Button = itemView.findViewById(R.id.btnAddPanier)
+        val btn : CardView = itemView.findViewById(R.id.btnAddPanier)
         val itemImage : ImageView = itemView.findViewById(R.id.ivRepas)
         var ctlItems : ConstraintLayout = itemView.findViewById(R.id.ctlItems)
         var price : TextView = itemView.findViewById(R.id.txtBigPrice)
         var description : TextView = itemView.findViewById(R.id.txtDescription)
         var imgUp : ImageView = itemView.findViewById(R.id.imgUp)
-
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
                 btn.visibility = View.VISIBLE
                 imgUp.visibility = View.VISIBLE
-                ctlItems.maxHeight = 2000
+                ctlItems.visibility = View.GONE
                 listener.onItemClick(position)
                 if (itemView.getParent() != null) {
                     (itemView.getParent() as ViewGroup).removeView(itemView) // <- fix
                 }
-
                 val dialog = BottomSheetDialog(itemView.context)
                 dialog.setContentView(itemView)
                 dialog.show()
@@ -62,7 +61,6 @@ class RepasAdapter(
         }
         fun bind(repas: Repas)
         {
-
             btn.visibility = View.GONE
             imgUp.visibility = View.GONE
             ctlItems.maxHeight = 400

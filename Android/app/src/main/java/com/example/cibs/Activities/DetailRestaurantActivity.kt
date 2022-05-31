@@ -1,6 +1,5 @@
 package com.example.cibs.Activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -14,8 +13,8 @@ import com.example.cibs.service.DetailRestaurant.RestaurantApi
 import com.example.cibs.Adapters.DetailRestaurant.ViewPagerAdapter
 import com.example.cibs.R
 import com.example.cibs.model.detailRestaurant.Repas
-import com.example.cibs.model.detailRestaurant.Restaurant
-import com.example.cibs.model.detailRestaurant.RestaurantModel
+import com.example.cibs.model.Restaurant
+import com.example.cibs.model.RestaurantModel
 import com.example.cibs.service.DetailRestaurant.Retro
 import com.example.cibs.service.utils.LoadingDialog
 import retrofit2.Call
@@ -26,12 +25,7 @@ import retrofit2.Response
 class DetailRestaurantActivity : AppCompatActivity(){
     companion object{
         var baseImageUrl = "http://192.168.1.107:8000/static/"
-        var restauxList = mutableListOf<Restaurant>()
-        var resto = Restaurant(
-            RestaurantModel(80,
-                "${baseImageUrl}imagesa1b2ffacba708e051db8.jpg",
-                "Base_Resti","Base_restaurant") , mutableListOf(Repas(100,
-                80,"Base","http://192.168.1.107:5001/static/imagesa1b2ffacba708e051db8.jpg",399f)))
+        var restauxList = mutableListOf<RestaurantModel>()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +39,11 @@ class DetailRestaurantActivity : AppCompatActivity(){
         //pour recupérer la liste des Restaurants
 //        try{
             val retro = Retro().getRetoClient().create(RestaurantApi::class.java)
-            retro.getRestaurant().enqueue(object : Callback<MutableList<RestaurantModel>>{
+            retro.getRestaurant().enqueue(object : Callback<MutableList<Restaurant>>{
                 //si tout ce passe bien
                 override fun onResponse(
-                    call: Call<MutableList<RestaurantModel>>,
-                    response: Response<MutableList<RestaurantModel>>
+                    call: Call<MutableList<Restaurant>>,
+                    response: Response<MutableList<Restaurant>>
                 ) {
                     println("------------==================----------------------====================-----"+response.body().toString())
                     if(response.isSuccessful){
@@ -79,7 +73,7 @@ class DetailRestaurantActivity : AppCompatActivity(){
                                             }
                                         }
                                         //transforme la classe RestorantModel en Restorant
-                                        var resto = Restaurant(rest, repass)
+                                        var resto = RestaurantModel(rest, repass)
 
                                         //ajoute le les restorants qui ont des repas dans la liste des restaurants
                                         restauxList.add(resto)
@@ -108,7 +102,7 @@ class DetailRestaurantActivity : AppCompatActivity(){
                     loading.isDismiss()
                 }
 
-                override fun onFailure(call: Call<MutableList<RestaurantModel>>, t: Throwable) {
+                override fun onFailure(call: Call<MutableList<Restaurant>>, t: Throwable) {
                     println("------------==================----------------------====================-----"+t.message)
                     Toast.makeText(applicationContext,t.message,Toast.LENGTH_LONG).show()
                 }

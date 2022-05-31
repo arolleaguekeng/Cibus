@@ -1,5 +1,6 @@
 import 'package:cibus_multi_plateforme/views/Activities/restaurant_details.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 
 
@@ -319,7 +320,7 @@ class RestaurantHomeCard extends StatelessWidget {
   final double? minLeadingWidth;
   final String? nom;
   final String? description;
-  final String? rating;
+  final double? rating;
   final String? cookTime;
   final String? thumbnailUrl;
 
@@ -413,6 +414,7 @@ class RestaurantHomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final ThemeData theme = Theme.of(context);
     final ListTileThemeData tileTheme = ListTileTheme.of(context);
     final IconThemeData iconThemeData = IconThemeData(color: _iconColor(theme, tileTheme));
@@ -435,117 +437,113 @@ class RestaurantHomeCard extends StatelessWidget {
       hoverColor: hoverColor,
       autofocus: autofocus,
       enableFeedback: enableFeedback ?? tileTheme.enableFeedback ?? true,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        width: MediaQuery.of(context).size.width,
-        height: 80,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.6),
-              offset: const Offset(
-                0.0,
-                10.0,
+      child:Container(
+        height: 500,
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.6),
+                offset: const Offset(
+                  0.0,
+                  6.0,
+                ),
+                blurRadius: 10.0,
+                spreadRadius: -6.0,
               ),
-              blurRadius: 10.0,
-              spreadRadius: -6.0,
-            ),
-          ],
-          image: DecorationImage(
-            colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.4),
-              BlendMode.multiply,
-            ),
-            image: NetworkImage(thumbnailUrl!),
-            fit: BoxFit.cover,
+
+            ],
           ),
-        ),
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(
-                  nom!,
-                  style: const TextStyle(
-                    fontSize: 30,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 100.0),
-                child: Text(
-                  description!,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.amberAccent
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Container(
+              child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
-                    margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.favorite_border,
-                          color: Colors.yellow,
-                          size: 25,
+                      width: MediaQuery.of(context).size.width / 1.3,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        image: DecorationImage(
+                          colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.4),
+                            BlendMode.multiply,
+                          ),
+                          image: NetworkImage(thumbnailUrl!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child:Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: Container(
+                                  padding: const EdgeInsets.all(5),
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.4),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                        size: 30,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
 
-                        ),
-                        const SizedBox(width: 7),
-                        Text(rating!),
-                      ],
-                    ),
+
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    margin: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.schedule,
-                          color: Colors.yellow,
-                          size: 18,
+                  Column(
+                    children: [
+                      SizedBox(height: size.height *0.02),
+                      Text(
+                        nom!,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15
                         ),
-                        const SizedBox(width: 7),
-                        Text(description!),
-                      ],
-                    ),
+
+                      ),
+                      Text(
+                        description!,
+                        style: const TextStyle(
+                            color: Colors.black
+                        ),
+                      ),
+                      SmoothStarRating(
+                          allowHalfRating: false,
+                          onRated: (v) {
+                          },
+                          starCount: 5,
+                          rating: rating!,
+                          size: 20.0,
+                          isReadOnly:true,
+                          color: Colors.orange,
+                          borderColor: Colors.blueGrey,
+                          spacing:0.0
+                      ),
+                    ],
                   )
                 ],
-              ),
-            ),
-          ],
-        ),
+              )
+          ),
 
-      ),
+
+      )
+
+
 
     );
 

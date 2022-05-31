@@ -1,3 +1,7 @@
+import 'package:cibus_multi_plateforme/constants.dart';
+import 'package:flutter/material.dart';
+
+
 
 
 import 'package:cibus_multi_plateforme/views/Activities/restaurant_details.dart';
@@ -44,7 +48,7 @@ enum ListTileControlAffinity {
   platform,
 }
 
-class RepasCard extends StatelessWidget {
+class MyRepasCard extends StatelessWidget {
 
 
   /// Creates a list tile.
@@ -52,7 +56,7 @@ class RepasCard extends StatelessWidget {
   /// If [isThreeLine] is true, then [subtitle] must not be null.
   ///
   /// Requires one of its ancestors to be a [Material] widget.
-  const RepasCard({
+  const MyRepasCard({
     Key? key,
     this.leading,
     this.title,
@@ -443,86 +447,125 @@ class RepasCard extends StatelessWidget {
       autofocus: autofocus,
       enableFeedback: enableFeedback ?? tileTheme.enableFeedback ?? true,
       child:
-          Container(
-            width: size.width /1.5,
-            height: 120,
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.6),
-                  offset: const Offset(
-                    0.0,
-                    5.0,
+      Container(
+        width: size.width /1.5,
+        height: 130,
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.6),
+              offset: const Offset(
+                0.0,
+                3.0,
+              ),
+              blurRadius: 10.0,
+              spreadRadius: -6.0,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+                height: 130,
+                width: 100,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        image: NetworkImage(image!), fit: BoxFit.cover))
+            ),
+            SizedBox(width: size.height *0.02),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    nom!,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  blurRadius: 10.0,
-                  spreadRadius: -6.0,
+                  SizedBox(height: size.height *0.01),
+
+                  Text(
+                    description!,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.black45,
+                    ),
+                  ),
+                  SizedBox(height: size.height *0.01),
+                  SmoothStarRating(
+                      allowHalfRating: false,
+                      onRated: (v) {
+                      },
+                      starCount: 5,
+                      rating: rating,
+                      size: 20.0,
+                      isReadOnly:true,
+                      color: Colors.orange,
+                      borderColor: Colors.blueGrey,
+                      spacing:0.0
+                  ),
+                  SizedBox(height: size.height *0.01),
+                  Text(
+                    prix!.toString() + " XAF",
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.black45,
+                    ),
+
+                  ),
+                ]
+            ),
+            Row(
+              children: [
+                IconButton(
+                    onPressed: (){
+                      // setState((){
+                      //   quantity --;
+                      //   totalAmound = CalculTotalAmound(
+                      //       quantity,
+                      //       _repasList[index].prix
+                      //   );
+                      // });
+
+                    },
+                    icon: const Icon(Icons.remove_circle,
+                      color: Colors.blueGrey,)
+                ),
+                Text(
+                  '0',
+                  // quantity.toString(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.black
+                  ),
+                ),
+                //boutton plus
+                IconButton(
+                    onPressed: (){
+                      // quantity --;
+                      // totalAmound = CalculTotalAmound(
+                      //     quantity,
+                      //     _repasList[index].prix
+                      // );
+                    },
+                    icon: const Icon(Icons.add_circle,
+                      color: kPrimaryColor,)
                 ),
               ],
-            ),
-            child: Row(
-                children: [
-                   Container(
-                     height: double.infinity,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: NetworkImage(image!), fit: BoxFit.cover))
-                  ),
-                  SizedBox(width: size.height *0.02),
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        nom!,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: size.height *0.01),
+            )
+          ],
+        ),
 
-                      Text(
-                        description!,
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black45,
-                        ),
-                      ),
-                      SizedBox(height: size.height *0.01),
-                      SmoothStarRating(
-                          allowHalfRating: false,
-                          onRated: (v) {
-                          },
-                          starCount: 5,
-                          rating: rating,
-                          size: 20.0,
-                          isReadOnly:true,
-                          color: Colors.orange,
-                          borderColor: Colors.blueGrey,
-                          spacing:0.0
-                      ),
-                      SizedBox(height: size.height *0.01),
-                      Text(
-                        prix.toString() + " XAF",
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black45,
-                        ),
+      ),
 
-                      ),
-                    ]
-                )
-              ],
-            ),
-
-          ),
-
-      );
+    );
 
 
 

@@ -127,7 +127,7 @@
                    />
 
                <TextView
-                   android:id="@+id/view_all1"
+                   android:id="@+id/view_allRestaurant"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="View all"

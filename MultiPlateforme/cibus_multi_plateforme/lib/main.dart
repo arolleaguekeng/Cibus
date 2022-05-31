@@ -1,7 +1,8 @@
+import 'package:cibus_multi_plateforme/constants.dart';
 import 'package:cibus_multi_plateforme/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:cibus_multi_plateforme/views/Activities/Screens/Welcome/welcome_sreen.dart';
-
+//--no-sound-null-safety
 void main() {
   runApp(const MyApp());
 }
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         secondaryHeaderColor: Colors.white,
         textTheme: const TextTheme(
-          bodyText2: TextStyle(color: Colors.white)
-        )
+          bodyText2: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: kPrimaryLightColor
       ),
-      home:  HomePage(),
+      home:  WelcomeScreen(),
     );
   }
 }

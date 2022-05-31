@@ -1,5 +1,6 @@
 import 'package:cibus_multi_plateforme/models/api/restaurant.api.dart';
 import 'package:cibus_multi_plateforme/models/restaurant.dart';
+import 'package:cibus_multi_plateforme/services/api_services.dart';
 import 'package:cibus_multi_plateforme/views/widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 
@@ -35,15 +36,15 @@ class _RestaurantListState extends State<RestaurantList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           // actionsIconTheme: Icons.arrow_back_ios,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Icon(Icons.arrow_back_ios),
-              SizedBox(width: 100),
-              Text('Nos Restaurants'),
-            ],
+          title: Text(
+              'Nos Restaurants',
+            style: TextStyle(
+              color: Colors.black
+            ),
           ),
+          centerTitle: true,
         ),
         body: _isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -55,16 +56,14 @@ class _RestaurantListState extends State<RestaurantList> {
               description: _recipes[index].description,
               cookTime: _recipes[index].description,
               rating: _recipes[index].rating.toString(),
-              thumbnailUrl: baseUrl + _recipes[index].image,
+              thumbnailUrl: api_services.baseImageUrlRestaurant + _recipes[index].image,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>RestaurantDetails(_recipes[index]))
                 );
                 print(_recipes[index]);
               },
             );
-
           },
-
         ));
   }
 }

@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 class Restaurant{
   final int restaurant_id;
+  final int localisation_id;
   final String image;
   final String nom;
   final String description;
@@ -10,7 +11,9 @@ class Restaurant{
 
 
   Restaurant(
-      {required this.restaurant_id,
+      {
+      required this.restaurant_id,
+      required this.localisation_id,
       required this.image,
       required this.nom,
       required this.description,
@@ -19,6 +22,7 @@ class Restaurant{
   factory Restaurant.fromJson(dynamic json){
     return Restaurant(
         restaurant_id: json['restaurant_id'] as int,
+        localisation_id: json['localisation_id'] as int,
         image: json['image'] as String,
         nom: json['nom'] as String,
         description: json ['description'] as String,
