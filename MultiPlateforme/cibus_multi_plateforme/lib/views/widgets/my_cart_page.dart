@@ -66,7 +66,7 @@ class _MyCartPageState extends State<MyCartPage> {
                           return MyRepasCard(
                             nom: _repasList[index].nom,
                             description: _repasList[index].description,
-                            prix: _repasList[index].prix,
+                            price: _repasList[index].price,
                             rating: _repasList[index].rating,
                             image: api_services.baseImageUrlRepas + _repasList[index].image,
                             onTap: () {
@@ -159,7 +159,7 @@ class _MyCartPageState extends State<MyCartPage> {
                                                       spacing:0.0
                                                   ),
                                                   Text(
-                                                    '${_repasList[index].prix} XAF',
+                                                    '${_repasList[index].price} XAF',
                                                     style: const TextStyle(
                                                         fontWeight: FontWeight.bold,
                                                         fontSize: 25,

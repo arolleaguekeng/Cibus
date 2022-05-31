@@ -7,7 +7,7 @@ class Repas{
   final String nom;
   final String image;
   final String description;
-  final double prix;
+  final double price;
   final double rating;
 
   Repas(
@@ -18,7 +18,7 @@ class Repas{
         required this.nom,
         required this.image,
         required this.description,
-        required this.prix,
+        required this.price,
         required this.rating
       });
 
@@ -30,7 +30,7 @@ class Repas{
       nom: json['nom'] as String,
       image: json['image'] as String,
       description: json['description'] as String,
-      prix: json['prix'] as double,
+      price: json['prix'] as double,
       rating: json['rating'] as double
     );
   }

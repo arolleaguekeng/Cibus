@@ -273,7 +273,7 @@ class _DashboardState extends State<Dashboard> {
                             return RepasCard(
                               nom: _repasList[index].nom,
                               description: _repasList[index].description,
-                              prix: _repasList[index].prix,
+                              price: _repasList[index].price,
                               rating: _repasList[index].rating,
                               image: api_services.baseImageUrlRepas + _repasList[index].image,
                               onTap: () {
@@ -366,7 +366,7 @@ class _DashboardState extends State<Dashboard> {
                                                         spacing:0.0
                                                     ),
                                                     Text(
-                                                      '${_repasList[index].prix} XAF',
+                                                      '${_repasList[index].price} XAF',
                                                       style: const TextStyle(
                                                           fontWeight: FontWeight.bold,
                                                           fontSize: 25,
@@ -444,7 +444,7 @@ class _DashboardState extends State<Dashboard> {
                                                               quantity --;
                                                               totalAmound = CalculTotalAmound(
                                                                   quantity,
-                                                                  _repasList[index].prix
+                                                                  _repasList[index].price
                                                               );
                                                             });
 
@@ -466,7 +466,7 @@ class _DashboardState extends State<Dashboard> {
                                                             quantity --;
                                                             totalAmound = CalculTotalAmound(
                                                                 quantity,
-                                                                _repasList[index].prix
+                                                                _repasList[index].price
                                                             );
                                                           },
                                                           icon: const Icon(Icons.add_circle,

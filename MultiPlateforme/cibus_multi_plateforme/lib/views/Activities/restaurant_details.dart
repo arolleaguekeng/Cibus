@@ -230,7 +230,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails>{
                             return RepasCard(
                               nom: _recipes[index].nom,
                               description: _recipes[index].description,
-                              prix: _recipes[index].prix,
+                              price: _recipes[index].price,
                               rating: _recipes[index].rating,
                               image: api_services.baseImageUrlRepas + _recipes[index].image,
                               onTap: () {
