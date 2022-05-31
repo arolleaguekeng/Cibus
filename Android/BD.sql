@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS Panier
         REFERENCES ProduitPanier (produit_panier_id)	
 )
 
-CREATE TABLE IF NOT EXISTS User
+CREATE TABLE IF NOT EXISTS _User
 (
 	user_id SERIAL PRIMARY KEY NOT NULl,
 	localisation_id INTEGER NOT NULL,
@@ -69,7 +69,3 @@ CREATE TABLE IF NOT EXISTS User
 	 CONSTRAINT user_loc_fk FOREIGN KEY (localisation_id)
         REFERENCES Localisation (localisation_id)	
 )
-
-
-
--------test commit-----------------!>
