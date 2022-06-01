@@ -87,7 +87,7 @@ class RepasCard extends StatelessWidget {
     this.nom,
     this.image,
     this.description,
-    this.prix,
+    this.price,
     this.rating
   }) : assert(isThreeLine != null),
         assert(enabled != null),
@@ -326,7 +326,7 @@ class RepasCard extends StatelessWidget {
   final String? nom;
   final String? image;
   final String? description;
-  final double? prix;
+  final double? price;
   final double? rating;
 
   static Iterable<Widget> divideTiles({ BuildContext? context, required Iterable<Widget> tiles, Color? color }) {
@@ -508,7 +508,7 @@ class RepasCard extends StatelessWidget {
                       ),
                       SizedBox(height: size.height *0.01),
                       Text(
-                        prix.toString() + " XAF",
+                        price.toString() + " XAF",
                         style: const TextStyle(
                           fontSize: 15,
                           color: Colors.black45,
