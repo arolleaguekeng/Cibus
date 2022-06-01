@@ -12,6 +12,7 @@ import cm.pam.retos.RepasApi
 import com.example.cibs.service.DetailRestaurant.RestaurantApi
 import com.example.cibs.Adapters.DetailRestaurant.ViewPagerAdapter
 import com.example.cibs.R
+import com.example.cibs.model.Plat
 import com.example.cibs.model.detailRestaurant.Repas
 import com.example.cibs.model.Restaurant
 import com.example.cibs.model.RestaurantModel
@@ -24,7 +25,7 @@ import retrofit2.Response
 
 class DetailRestaurantActivity : AppCompatActivity(){
     companion object{
-        var baseImageUrl = "http://192.168.1.107:8000/static/"
+        var baseImageUrl = "http://192.168.43.2:8000/static/"
         var restauxList = mutableListOf<RestaurantModel>()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,20 +56,20 @@ class DetailRestaurantActivity : AppCompatActivity(){
 
                             //recupérer tous les Repas
                             val retro = Retro().getRetoClient().create(RepasApi::class.java)
-                            retro.getRepasRestautant().enqueue(object : Callback<MutableList<Repas>>{
+                            retro.getRepasRestautant().enqueue(object : Callback<MutableList<Plat>>{
                                 override fun onResponse(
-                                    call: Call<MutableList<Repas>>,
-                                    response: Response<MutableList<Repas>>
+                                    call: Call<MutableList<Plat>>,
+                                    response: Response<MutableList<Plat>>
                                 ) {
                                     if (response.isSuccessful){
-                                        var repass = mutableListOf<Repas>()
+                                        var repass = mutableListOf<Plat>()
 
                                         //parcourrir la liste des Repas
                                         for(repas in response.body()!!){
                                             //trier les Repas par restaurant (retourne pour chaque restorant sa liste de repas en fonction de l'id)
                                             if(repas.restaurant_id == rest.restaurant_id){
                                                 repas.image = baseImageUrl+repas.image
-                                                Log.e("image:" ,repas.image)
+                                                //Log.e("image:" ,repas.image)
                                                 repass.add(repas)
                                             }
                                         }
@@ -81,7 +82,7 @@ class DetailRestaurantActivity : AppCompatActivity(){
 
                                 }
 
-                                override fun onFailure(call: Call<MutableList<Repas>>, t: Throwable) {
+                                override fun onFailure(call: Call<MutableList<Plat>>, t: Throwable) {
                                     //    println("******************************////////////******************************"+t.message)
                                 }
                             })
@@ -96,7 +97,7 @@ class DetailRestaurantActivity : AppCompatActivity(){
 //                restauxList.removeAt(0)
 //                restauxList.removeAt(0)
 //                restauxList.removeAt(1)
-                    view_pager2.adapter = ViewPagerAdapter(restauxList)
+                    view_pager2.adapter = ViewPagerAdapter(restauxList, this@DetailRestaurantActivity)
 
                     view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
                     loading.isDismiss()

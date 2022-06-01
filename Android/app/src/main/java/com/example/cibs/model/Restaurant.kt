@@ -8,17 +8,17 @@ open class Restaurant(
     var description: String?,
     var image: String?,
     var rating: Float,
-    var idLocalisation: Int
+    var localisation_id: Int
 ){
 
 }
 
-class RestaurantModel(restaurant: Restaurant, var repas: MutableList<Repas>?)
+class RestaurantModel(restaurant: Restaurant, var plat: MutableList<Plat>?)
     : Restaurant(restaurant.restaurant_id,
     restaurant.image,
     restaurant.nom,
     restaurant.description,
     restaurant.rating,
-    restaurant.idLocalisation) {
+    restaurant.localisation_id) {
 }
 

@@ -1,21 +1,27 @@
 package com.example.cibs.Fragments
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.cibs.Activities.HomeActivity
+import com.example.cibs.Activities.LoginActivity
+import com.example.cibs.Activities.MainActivity
 import com.example.cibs.R
 import com.example.cibs.RetroInstance
-import com.example.cibs.model.Panier
+import com.example.cibs.model.*
+import com.example.cibs.viewModel.HomeActivityViewModel
+import com.example.cibs.viewModel.SignUpActivityViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlin.system.exitProcess
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,9 +33,9 @@ private const val ARG_PARAM2 = "param2"
  * Use the [BottomFragmentProduct.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BottomFragmentProduct : BottomSheetDialogFragment() {
+class BottomFragmentProduct(private val context: HomeActivity) : BottomSheetDialogFragment() {
     // TODO: Rename and change types of parameters
-
+    lateinit var viewModel: HomeActivityViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,10 +45,11 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
     }
 
     var currentPrix: Double = 0.0
+    var currentQuantity = 1
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var currentQuantity = 1
+
 
         var isAdd = false
         var quantity = view.findViewById<TextView>(R.id.Quantity)
@@ -57,7 +64,7 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
         var button: Button = view.findViewById<Button>(R.id.addpanier)
         var subprice: TextView = view.findViewById<TextView>(R.id.subprice)
         var description: TextView = view.findViewById<TextView>(R.id.Description_repas)
-
+        initViewModel()
         title.text = HomeActivity.CurrentPlat.nom
         sub.text = HomeActivity.CurrentPlat.nom
         price.text = HomeActivity.CurrentPlat.price.toString()+" XAF"
@@ -97,11 +104,44 @@ class BottomFragmentProduct : BottomSheetDialogFragment() {
             }
             if(exist == false){
                 HomeActivity.ListPanier.add(Panier(HomeActivity.CurrentPlat, currentQuantity, currentPrix))
+                addProduct()
             }
             isAdd = true
         }
+        addProductObservable()
 
 
+    }
+
+
+    private fun initViewModel(){
+        viewModel = ViewModelProvider(this).get(HomeActivityViewModel::class.java)
+
+    }
+
+    private fun addProduct(){
+        val product = ProduitPanier(0,HomeActivity.CurrentPlat.plat_id, currentQuantity, LoginActivity.CurrentUser.user_id)
+        viewModel.addProductPanier(product)
+    }
+
+
+    private fun addProductObservable(){
+        viewModel.addProductPanierLiveData.observe(this, Observer<ProductResponse?> {
+            if (it == null) {
+                Toast.makeText(context, "no result found...", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    context,
+                    "successffull result found...",
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(context, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+
+            }
+
+        })
     }
 
 

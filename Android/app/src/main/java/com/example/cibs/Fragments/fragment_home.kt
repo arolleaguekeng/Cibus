@@ -30,7 +30,7 @@ import com.example.cibs.model.RestaurantModel
 
 class fragment_home(private val context: HomeActivity
 ): Fragment(), CategorieClickListener, Restaurant1ClickListener, PlatClickListener {
-    val bottomSheetFragment = BottomFragmentProduct()
+    val bottomSheetFragment = BottomFragmentProduct(context)
     val bottomFragmentParameter = BottomFragmentParameter()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -89,11 +89,13 @@ class fragment_home(private val context: HomeActivity
     }
 
     override fun onButtonClicked(restaurant: Restaurant) {
-        Toast.makeText(context, restaurant.nom, Toast.LENGTH_SHORT).show()
+        var intent = Intent(context, DetailRestaurantActivity::class.java);
+        startActivity(intent)
 
     }
 
     override fun onItemClicked(restaurant: Restaurant, view: View) {
-        Toast.makeText(context, restaurant.nom, Toast.LENGTH_SHORT).show()
+        var intent = Intent(context, DetailRestaurantActivity::class.java);
+        startActivity(intent)
     }
 }

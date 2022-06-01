@@ -10,6 +10,7 @@
     <color name="Orange">#f8a724</color>
     <color name="OrangeCompac">#f74f04</color>
     <color name="darkGray">#202122</color>
+    <color name="transparant">@color/blackTransparent</color>
     <color name="lightGray">#989CA0</color>
     <color name="sableBlanc">#A7A7A7</color>
     <color name="Blanccasse">#ccc</color>

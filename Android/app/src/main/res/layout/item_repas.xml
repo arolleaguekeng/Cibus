@@ -10,9 +10,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".BottomFragmentProduct">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,10 +20,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-
                 >
-
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="100dp"
@@ -34,28 +29,28 @@
 
                 <TextView
                     android:id="@+id/repasName"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_toEndOf="@id/image"
-                    android:text="Pizza Margherita" />
+                    android:text="Pizza Margherita"
+                    android:textColor="@color/black" />
+
                 <TextView
                     android:id="@+id/subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:textSize="11dp"
-                    android:text="Pizza Margherita"
-                    android:layout_toEndOf="@id/image"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:layout_marginTop="30dp"
+                    android:layout_toEndOf="@id/image"
+                    android:text="Pizza Margherita"
+                    android:textSize="11dp" />
 
                 <RatingBar
-                    android:id="@+id/rating"
+                    android:id="@+id/ratingCart"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,7 +70,6 @@
                     android:layout_toEndOf="@id/image"
                     android:text="100.00$"
                     android:layout_marginLeft="10dp"
-
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -86,9 +80,7 @@
                     android:text="Non-Veg"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
-                    />
-
+                    android:textSize="11sp" />
                 <ImageView
                     android:id="@+id/fav"
                     android:layout_width="20dp"
@@ -109,6 +101,7 @@
                 android:textColor="@color/black"
                 />
             <TextView
+                android:id="@+id/descriptionCart"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,8 +128,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="11sp"
-
-
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -158,7 +149,6 @@
                     android:background="@color/Orange"
                     android:textColor="@color/white"
                     android:textSize="11sp"
-
                     />
             </RelativeLayout>
             <RelativeLayout
@@ -166,7 +156,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 >
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -175,9 +164,10 @@
 
                 <ImageView
                     android:id="@+id/addQuantity"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="13dp"
+                    android:layout_height="7dp"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="9dp"
                     android:src="@drawable/ic_add_circle" />
 
                 <TextView
@@ -233,9 +223,11 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:src="@drawable/ic_store"
-                    app:tint="@color/Orange" />
+                    app:tint="@color/Orange"
+                    />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/boutonAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -256,7 +248,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ctlItems"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
@@ -268,7 +260,8 @@
             android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/Orange" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -305,7 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="4000XAF"
-            android:textColor="@color/orange"
+            android:textColor="@color/Orange"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.951"
@@ -313,11 +306,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RatingBar
+            android:id="@+id/restoRating"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:progressTint="@color/Orange"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@+id/txtDescription"
             app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -345,14 +340,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtrepasName"
-            app:layout_constraintVertical_bias="0.02" />
+            app:layout_constraintVertical_bias="0.02"
+            app:tint="@color/Orange" />
 
         <TextView
             android:id="@+id/txtDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-
             android:text="Plat très bon avec un soupçon de bonheur"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

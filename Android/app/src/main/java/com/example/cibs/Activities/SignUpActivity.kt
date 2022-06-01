@@ -68,10 +68,11 @@ class SignUpActivity : AppCompatActivity() {
 
         val user = User(
             0,
+            0,
             LoginActivity.email,
             LoginActivity.password,
             LoginActivity.nom,
-            LoginActivity.phone, null, null)
+            LoginActivity.phone, null)
 
         viewModel.SignUpUser(user)
     }

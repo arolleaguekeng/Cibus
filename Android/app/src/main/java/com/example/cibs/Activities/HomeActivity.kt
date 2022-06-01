@@ -13,10 +13,7 @@ import com.example.cibs.Fragments.fragment_home
 import com.example.cibs.Fragments.fragment_orders
 import com.example.cibs.Fragments.fragment_panier
 import com.example.cibs.R
-import com.example.cibs.model.Categorie
-import com.example.cibs.model.Panier
-import com.example.cibs.model.Plat
-import com.example.cibs.model.Restaurant
+import com.example.cibs.model.*
 import com.example.cibs.service.utils.LoadingDialog
 import com.example.cibs.viewModel.HomeActivityViewModel
 import com.example.cibs.viewModel.LoginActivityViewModel
@@ -32,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
         var listRest = mutableListOf<Restaurant>()
         var listCategorie = mutableListOf<Categorie>()
         var listPlat = mutableListOf<Plat>()
+        var listLocalisation = mutableListOf<Localisation>()
     }
     lateinit var viewModel: HomeActivityViewModel
     val loading = LoadingDialog(this)
@@ -81,6 +79,9 @@ class HomeActivity : AppCompatActivity() {
             loadfragment(fragment_panier(this))
         }
 
+
+
+
     }
     private fun loadfragment(fragment: Fragment){
 
@@ -127,6 +128,19 @@ class HomeActivity : AppCompatActivity() {
             }
         })
         viewModel.GetPlat()
+
+
+         viewModel.getLocationObservable().observe(this, Observer<MutableList<Localisation>?> {
+             if (it == null) {
+                 Toast.makeText(applicationContext, "Aucun plat", Toast.LENGTH_SHORT).show()
+             } else {
+
+                 HomeActivity.listLocalisation = it
+                 Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
+
+             }
+         })
+         viewModel.getLocalisation()
         loading.isDismiss()
     }
 

@@ -1,5 +1,6 @@
 package cm.pam.retos
 
+import com.example.cibs.model.Plat
 import com.example.cibs.model.detailRestaurant.Repas
 
 import retrofit2.Call
@@ -13,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 interface RepasApi {
     @GET("repas/")
-    fun getRepasRestautant():Call<MutableList<Repas>>
+    fun getRepasRestautant():Call<MutableList<Plat>>
 }
 
 

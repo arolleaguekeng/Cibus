@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_detail_restaurant.xml" value="0.1" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_home.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_bottom_product.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_orders.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/fragment_pannier.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/Android/app/src/main/res/layout/item_bottom_option.xml" value="0.17074275362318841" />
@@ -46,20 +48,6 @@
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/layout/item_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/layout/item_page_resto.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/cedric/AndroidStudioProjects/Cibs/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2355" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2355" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2355" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/activity_detail_restaurant.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/activity_home.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/activity_main.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/fragment_bottom_product.xml" value="0.264" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/fragment_home.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/item_bottom_option.xml" value="0.192481884057971" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/item_page.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/item_page_resto.xml" value="0.275" />
-        <entry key="..\:/projet/CibusTest/Android/app/src/main/res/layout/item_repas.xml" value="0.275" />
-        <entry key="..\:/projet/cibss/Android/app/src/main/res/layout/activity_detail_restaurant.xml" value="0.1" />
-        <entry key="..\:/projet/cibss/Android/app/src/main/res/layout/item_slide.xml" value="0.275" />
       </map>
     </option>
   </component>
