@@ -3,25 +3,27 @@
     package="com.example.cibs">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/cibus"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/cibus"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibs"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activities.LanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Activities.DetailRestaurantActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Activities.SignUpActivity"
             android:exported="false" />
@@ -35,10 +37,14 @@
             android:name=".Activities.RestoDidactActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.HomeActivity"
-            android:exported="false"/>
+            android:name=".Activities.PayementActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.MainActivity"
             android:exported="false" />
