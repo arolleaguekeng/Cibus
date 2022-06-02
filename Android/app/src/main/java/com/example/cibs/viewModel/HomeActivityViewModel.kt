@@ -46,7 +46,7 @@ class HomeActivityViewModel: ViewModel() {
         return addProductPanierLiveData
     }
 
-    fun getAllProductpanier(): MutableLiveData<MutableList<ProduitPanier>?>
+    fun getAllProductpanierObservable(): MutableLiveData<MutableList<ProduitPanier>?>
     {
         return getAllProductpanierLiveData
     }
@@ -78,6 +78,32 @@ class HomeActivityViewModel: ViewModel() {
 
 
     }
+
+    fun GetCategorie(){
+        val retroInstance = RetroInstance.getRetroInstance().create(CategorieServiceApi::class.java)
+        val call = retroInstance.getAllCategorie()
+
+        call.enqueue(object : Callback<MutableList<Categorie>?> {
+            override fun onResponse(call: Call<MutableList<Categorie>?>, response: Response<MutableList<Categorie>?>)
+            {
+                if(response.isSuccessful)
+                {
+                    categorieLiveData.postValue(response.body())
+                }
+                else
+                {
+                    categorieLiveData.postValue(null)
+                }
+            }
+            override fun onFailure(call: Call<MutableList<Categorie>?>, t: Throwable)
+            {
+                categorieLiveData.postValue(null)
+            }
+
+        })
+
+    }
+
 
     fun GetRestaurant(){
         val retroInstance = RetroInstance.getRetroInstance().create(RestoServiceApi::class.java)
@@ -129,30 +155,7 @@ class HomeActivityViewModel: ViewModel() {
 
     }
 
-    fun GetCategorie(){
-        val retroInstance = RetroInstance.getRetroInstance().create(CategorieServiceApi::class.java)
-        val call = retroInstance.getAllCategorie()
 
-        call.enqueue(object : Callback<MutableList<Categorie>?> {
-            override fun onResponse(call: Call<MutableList<Categorie>?>, response: Response<MutableList<Categorie>?>)
-            {
-                if(response.isSuccessful)
-                {
-                    categorieLiveData.postValue(response.body())
-                }
-                else
-                {
-                    categorieLiveData.postValue(null)
-                }
-            }
-            override fun onFailure(call: Call<MutableList<Categorie>?>, t: Throwable)
-            {
-                categorieLiveData.postValue(null)
-            }
-
-        })
-
-    }
 
 
 
@@ -173,7 +176,33 @@ class HomeActivityViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<ProductResponse?>, t: Throwable) {
-                TODO("Not yet implemented")
+                addProductPanierLiveData.postValue(null)
+            }
+
+        })
+
+    }
+
+
+    fun GetAllProductPanier(){
+        val retroInstance = RetroInstance.getRetroInstance().create(ProductServiceApi::class.java)
+        val call = retroInstance.getAllProduitPanier()
+
+        call.enqueue(object : Callback<MutableList<ProduitPanier>?> {
+            override fun onResponse(call: Call<MutableList<ProduitPanier>?>, response: Response<MutableList<ProduitPanier>?>)
+            {
+                if(response.isSuccessful)
+                {
+                    getAllProductpanierLiveData.postValue(response.body())
+                }
+                else
+                {
+                    getAllProductpanierLiveData.postValue(null)
+                }
+            }
+            override fun onFailure(call: Call<MutableList<ProduitPanier>?>, t: Throwable)
+            {
+                getAllProductpanierLiveData.postValue(null)
             }
 
         })

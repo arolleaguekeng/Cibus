@@ -13,9 +13,10 @@ import com.example.cibs.R
 import com.example.cibs.RetroInstance
 import com.example.cibs.model.Categorie
 
-class CategorieAdapter(val datas: MutableList<Categorie>, private val itemClickListener: CategorieClickListener): RecyclerView.Adapter<CategorieAdapter.viewHolder>() {
-
+class CategorieAdapter( private val itemClickListener: CategorieClickListener): RecyclerView.Adapter<CategorieAdapter.viewHolder>() {
+    var datas: MutableList<Categorie> = mutableListOf()
     class viewHolder(val view: View): RecyclerView.ViewHolder(view){
+
         private val Image_categorie: ImageView=view.findViewById(R.id.Image_categorie)
         val Nom_Categorie: TextView =view.findViewById<TextView>(R.id.Nom_categorie)
 

@@ -1,5 +1,6 @@
 package com.example.cibs.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
@@ -40,7 +41,9 @@ class ClientDidactActivity : AppCompatActivity() {
                     }
                 }
                 else{
-
+                    Intent(applicationContext, HomeActivity::class.java).also {
+                        startActivity(it)
+                    }
                 }
                 count++
 

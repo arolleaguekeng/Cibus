@@ -120,29 +120,26 @@ class BottomFragmentProduct(private val context: HomeActivity) : BottomSheetDial
     }
 
     private fun addProduct(){
-        val product = ProduitPanier(0,HomeActivity.CurrentPlat.plat_id, currentQuantity, LoginActivity.CurrentUser.user_id)
+        val product = ProduitPanier(null, HomeActivity.CurrentPlat.repas_id, currentQuantity, LoginActivity.CurrentUser.user_id)
         viewModel.addProductPanier(product)
     }
 
 
     private fun addProductObservable(){
         viewModel.addProductPanierLiveData.observe(this, Observer<ProductResponse?> {
-            if (it == null) {
-                Toast.makeText(context, "no result found...", Toast.LENGTH_SHORT).show()
-            } else {
+            if (it == null)
+            {
+                Toast.makeText(context, "Error verify connexion...", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            else
+            {
                 Toast.makeText(
                     context,
-                    "successffull result found...",
+                    "product Add Sucess...",
                     Toast.LENGTH_SHORT
                 ).show()
-                Intent(context, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-
             }
-
         })
     }
-
-
 }

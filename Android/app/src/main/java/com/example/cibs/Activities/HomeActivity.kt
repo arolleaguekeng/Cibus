@@ -9,6 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.cibs.Adapters.CartAdapter
+import com.example.cibs.Adapters.CategorieAdapter
+import com.example.cibs.Adapters.Restaurant1Adapter
+import com.example.cibs.Adapters.Restaurant2Adapter
 import com.example.cibs.Fragments.fragment_home
 import com.example.cibs.Fragments.fragment_orders
 import com.example.cibs.Fragments.fragment_panier
@@ -26,11 +30,14 @@ class HomeActivity : AppCompatActivity() {
         var CurrentPlat =  Plat(1,"Pizza Peperronie","description","https://st2.depositphotos.com/1177973/9248/i/950/depositphotos_92482426-stock-photo-pepperoni-pizza-with-olives-and.jpg",2.0f,7000.0, 12, 1)
         var CurrentAdd: Double = 0.0
         var ListPanier = mutableListOf<Panier>()
+        var listProduitPanier = mutableListOf<ProduitPanier>()
         var listRest = mutableListOf<Restaurant>()
         var listCategorie = mutableListOf<Categorie>()
         var listPlat = mutableListOf<Plat>()
         var listLocalisation = mutableListOf<Localisation>()
     }
+    lateinit var cartAdapter: CartAdapter
+
     lateinit var viewModel: HomeActivityViewModel
     val loading = LoadingDialog(this)
     @SuppressLint("ResourceAsColor")
@@ -95,42 +102,9 @@ class HomeActivity : AppCompatActivity() {
      fun initViewModel()
      {
         loading.startloading()
-        viewModel = ViewModelProvider(this).get(HomeActivityViewModel::class.java)
-        viewModel.getRestaurantNewObservable()
-            .observe(this, Observer<MutableList<Restaurant>?> {
-                if (it == null) {
-                    Toast.makeText(applicationContext, "Aucun restaurant", Toast.LENGTH_SHORT).show()
-                } else {
-                    listRest = it
-                    Toast.makeText(applicationContext, listRest.toString(), Toast.LENGTH_SHORT)
-                        .show()
-                }
-            })
-        viewModel.GetRestaurant()
-        viewModel.getCategoryObservable()
-            .observe(this, Observer<MutableList<Categorie>?> {
-                if (it == null) {
-                    Toast.makeText(applicationContext, "Aucune Categories", Toast.LENGTH_SHORT).show()
-                } else {
-                    HomeActivity.listCategorie = it
-                }
-            })
-        viewModel.GetCategorie()
-
-        viewModel.getRepasNewObservable().observe(this, Observer<MutableList<Plat>?> {
-            if (it == null) {
-                Toast.makeText(applicationContext, "Aucun plat", Toast.LENGTH_SHORT).show()
-            } else {
-
-                HomeActivity.listPlat = it
-                Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
-
-            }
-        })
-        viewModel.GetPlat()
 
 
-         viewModel.getLocationObservable().observe(this, Observer<MutableList<Localisation>?> {
+        /* viewModel.getLocationObservable().observe(this, Observer<MutableList<Localisation>?> {
              if (it == null) {
                  Toast.makeText(applicationContext, "Aucun plat", Toast.LENGTH_SHORT).show()
              } else {
@@ -139,8 +113,10 @@ class HomeActivity : AppCompatActivity() {
                  Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
 
              }
-         })
-         viewModel.getLocalisation()
+         })*/
+
+         //viewModel.getLocalisation()
+
         loading.isDismiss()
     }
 

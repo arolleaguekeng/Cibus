@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,14 +15,15 @@ import com.example.cibs.R
 import com.example.cibs.RetroInstance
 import com.example.cibs.model.Plat
 
-class PlatAdapter(val datas: MutableList<Plat>, private val itemClickListener: PlatClickListener): RecyclerView.Adapter<PlatAdapter.viewHolder>() {
-
+class PlatAdapter(private val itemClickListener: PlatClickListener): RecyclerView.Adapter<PlatAdapter.viewHolder>() {
+    var datas: MutableList<Plat> = mutableListOf()
     class viewHolder(val view: View): RecyclerView.ViewHolder(view){
         private val Image_plat: ImageView =view.findViewById(R.id.Image_plat)
         val nom_plat: TextView =view.findViewById<TextView>(R.id.Nom_plat)
         val price: TextView =view.findViewById<TextView>(R.id.Prix_plat)
         val add: ImageView = view.findViewById(R.id.Ajout)
         val nomRestaurant : TextView =view.findViewById<TextView>(R.id.Nom_restaurant)
+        val rating =view.findViewById<RatingBar>(R.id.StarNotePlat)
 
 
         fun bindData(plat: Plat) {
@@ -38,6 +40,7 @@ class PlatAdapter(val datas: MutableList<Plat>, private val itemClickListener: P
             nom_plat.text = plat.nom
             price.text = plat.price.toString()
             nomRestaurant.text = restaurant
+            rating.rating = plat.rating
 
         }
 

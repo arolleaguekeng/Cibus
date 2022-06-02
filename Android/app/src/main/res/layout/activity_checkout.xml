@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.CheckoutActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:title="Checkout"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery Option"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take Away (Free)"
+            android:layout_marginLeft="40dp"
+            android:buttonTint="@color/Orange"
+            android:checked="true"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take Away (Free)"
+            android:layout_marginLeft="40dp"
+            />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Enter Promo Code"
+            android:layout_alignEnd="@id/btn"
+            android:layout_alignParentStart="true"
+            android:id="@+id/zone"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_alignParentEnd="true"
+            android:text="Apply"
+            android:layout_marginRight="20dp"
+
+
+
+
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Payment Method"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:src="@drawable/orangemobile"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash on Delivery"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pay your payment after getting food"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:buttonTint="@color/Orange"
+                android:checked="true"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:src="@drawable/mobile"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash on Delivery"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pay your payment after getting food"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:buttonTint="@color/Orange"
+
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:id="@+id/priceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="Item Price" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="0 XAF" />
+
+            <TextView
+                android:id="@+id/addons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/priceTitle"
+                android:layout_marginLeft="10dp"
+                android:text="Addons" />
+
+            <TextView
+                android:id="@+id/addPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:text="0 XAF" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/priceTitle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="Subtotal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="10dp"
+                android:text="0 XAF"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:id="@+id/buttonConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Confirm Order" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

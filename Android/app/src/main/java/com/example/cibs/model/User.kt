@@ -1,12 +1,12 @@
 package com.example.cibs.model
 
 data class User(
-    val user_id: Int,
+    val user_id: Int?,
     val localisation_id: Int?,
     val email: String?,
     val password: String?,
     val nom: String?,
-    val phone: String?,
+    val phone: Int?,
     val image: String?,
 
 )

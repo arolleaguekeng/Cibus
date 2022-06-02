@@ -84,19 +84,18 @@ class RepasAdapter(
             rating.rating = repas.rating
 //            CountryFlag.setImageResource(country.Image)
             var http = RetroInstance.baseAdresse+"static/"+repas.image
-            Glide.with(itemView.context).load(Uri.parse(http)).into(
+            Glide.with(itemView.context).load(http).into(
                 itemImage
             )
 
-             rating.rating = repas.rating
     //            CountryFlag.setImageResource(country.Image)
 
-                titleCart.text  = repas.nom
+               /* titleCart.text  = repas.nom
                 descriptionCart.text = repas.description
                 ratingCart.rating = repas.rating
-            Glide.with(itemView.context).load(HomeActivity.CurrentPlat.image).into(
+            Glide.with(itemView.context).load(ViewPagerAdapter.CurrentRepas.image).into(
                 imageCart
-            )
+            )*/
 
         }
     }

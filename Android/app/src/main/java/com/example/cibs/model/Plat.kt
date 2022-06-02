@@ -1,7 +1,7 @@
 package com.example.cibs.model
 
 data class Plat(
-    val plat_id: Int,
+    val repas_id: Int,
     val nom: String?,
     val description: String?,
     var image: String?,

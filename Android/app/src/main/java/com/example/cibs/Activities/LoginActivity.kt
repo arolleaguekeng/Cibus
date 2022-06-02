@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel.getLoginUserNewObservable().observe(this, Observer<User?> {
             if (it == null) {
                 Toast.makeText(applicationContext, "no result found...", Toast.LENGTH_SHORT).show()
-                //loading.isDismiss()
+                loading.isDismiss()
             } else {
                 Toast.makeText(
                     applicationContext,

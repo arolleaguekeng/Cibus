@@ -19,6 +19,9 @@
             android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.CheckoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.SplashActivity"
             android:exported="false" />
         <activity

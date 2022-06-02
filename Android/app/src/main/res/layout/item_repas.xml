@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
         android:id="@+id/btnAddPanier"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".BottomFragmentProduct">
@@ -164,8 +164,8 @@
 
                 <ImageView
                     android:id="@+id/addQuantity"
-                    android:layout_width="13dp"
-                    android:layout_height="7dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="9dp"
                     android:src="@drawable/ic_add_circle" />

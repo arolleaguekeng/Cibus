@@ -14,8 +14,8 @@ import com.example.cibs.R
 import com.example.cibs.RetroInstance
 import com.example.cibs.model.Restaurant
 
-class Restaurant2Adapter(val datas: List<Restaurant>, private val itemClickListener: Restaurant1ClickListener): RecyclerView.Adapter<Restaurant2Adapter.viewHolder>() {
-
+class Restaurant2Adapter(private val itemClickListener: Restaurant1ClickListener): RecyclerView.Adapter<Restaurant2Adapter.viewHolder>() {
+    var datas: MutableList<Restaurant> = mutableListOf()
     class viewHolder(val view: View): RecyclerView.ViewHolder(view){
         val Image_restaurant:ImageView=view.findViewById(R.id.Image_restaurant)
         val RestaurantName:TextView=view.findViewById(R.id.Nom_restaurant)

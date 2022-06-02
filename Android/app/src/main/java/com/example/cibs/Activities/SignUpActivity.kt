@@ -3,6 +3,7 @@ package com.example.cibs.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -65,14 +66,15 @@ class SignUpActivity : AppCompatActivity() {
     private fun createUser(){
 
 
-
+        var phone : Int =  LoginActivity.phone.toInt()
         val user = User(
-            0,
-            0,
+            null,
+            null,
             LoginActivity.email,
             LoginActivity.password,
             LoginActivity.nom,
-            LoginActivity.phone, null)
+            phone,
+            null)
 
         viewModel.SignUpUser(user)
     }
@@ -84,9 +86,12 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun createUserObservable(){
         viewModel.getSignUpUserNewObservable().observe(this, Observer<UserResponse?> {
-            if (it == null) {
+            if (it == null)
+            {
                 Toast.makeText(applicationContext, "no result found...", Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else
+            {
                 Toast.makeText(
                     applicationContext,
                     "successffull result found...",
